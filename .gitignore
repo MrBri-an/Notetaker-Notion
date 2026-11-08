@@ -1,0 +1,6 @@
+# Local data — contains your Groq key and meeting audio. NEVER commit.
+data/
+*.log
+.DS_Store
+Thumbs.db
+node_modules/

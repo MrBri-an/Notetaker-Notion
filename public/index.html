@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notetaker — AI meeting notes</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23fff' stroke='%2337352f' stroke-width='6'/%3E%3Cpath d='M30 72V28l40 44V28' stroke='%2337352f' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <aside id="sidebar">
+    <div class="ws-row" id="workspaceBtn">
+      <span class="ws-avatar">N</span>
+      <span class="ws-name">Notetaker</span>
+    </div>
+    <nav class="side-top">
+      <button class="side-item" id="searchBtn" data-icon="search"><span class="si-icon"></span><span>Search</span><kbd id="searchKbd">Ctrl K</kbd></button>
+      <button class="side-item" id="homeBtn" data-icon="home"><span class="si-icon"></span><span>Home</span></button>
+    </nav>
+    <div class="side-scroll">
+      <div class="side-section">
+        <div class="side-header" id="meetingsHeader"><span>Meetings</span><button class="icon-btn tiny" id="newMeetingBtn" title="New meeting note" aria-label="New meeting note"><span data-icon="plus"></span></button></div>
+        <ul id="meetingsList" class="side-list"></ul>
+      </div>
+      <div class="side-section">
+        <div class="side-header" id="notesHeader"><span>Notes</span><button class="icon-btn tiny" id="newNoteBtn" title="New note" aria-label="New note"><span data-icon="plus"></span></button></div>
+        <ul id="notesList" class="side-list"></ul>
+      </div>
+    </div>
+    <div class="side-bottom">
+      <button class="side-item" id="settingsBtn" data-icon="gear"><span class="si-icon"></span><span>Settings</span></button>
+    </div>
+  </aside>
+
+  <main id="main"></main>
+
+  <aside id="chatPanel" class="chat-panel" aria-hidden="true">
+    <header class="chat-head">
+      <span class="spark">✦</span><strong>Ask AI</strong>
+      <span class="chat-sub">about this meeting</span>
+      <button class="icon-btn" id="chatClearBtn" title="Clear conversation"><span data-icon="trash"></span></button>
+      <button class="icon-btn" id="chatCloseBtn" title="Close"><span data-icon="close"></span></button>
+    </header>
+    <div class="chat-scroll" id="chatScroll"></div>
+    <form class="chat-input-row" id="chatForm">
+      <input id="chatInput" type="text" placeholder="Ask about this meeting…" autocomplete="off">
+      <button class="icon-btn send" id="chatSendBtn" type="submit" title="Send"><span data-icon="send"></span></button>
+    </form>
+  </aside>
+
+  <div id="skillPop" class="skill-pop" hidden>
+    <header class="skill-head"><span id="skillTitle"></span><button class="icon-btn" id="skillCloseBtn"><span data-icon="close"></span></button></header>
+    <div class="skill-body" id="skillBody"></div>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toasts"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
